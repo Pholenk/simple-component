@@ -11,21 +11,23 @@ import {
   Text,
   View
 } from 'react-native';
-
+import SimpleComponent from './app/components/ClassBased';
+// import SimpleComponent from './app/components/PureFunction';
 export default class somehello extends Component {
+  state = {
+    timerText: 'now'
+  }
+  componentDidMount(){
+    setInterval(()=>{
+      this.setState({
+        timerText: `then ${new Date().getTime()}`
+      });
+    }, 1000);
+  }
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
+      <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+        <SimpleComponent timerText={this.state.timerText} />
       </View>
     );
   }
