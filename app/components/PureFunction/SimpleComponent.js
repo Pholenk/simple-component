@@ -1,14 +1,14 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
-const PureFunction = props => (
+const SimpleComponent = props => (
   <View>
     <Text>{props.timerText}</Text>
   </View>
 );
 
-PureFunction.defaultProps = {
+SimpleComponent.defaultProps = {
   timerText: "timer text",
 }
 
-export default PureFunction;
+export default SimpleComponent;

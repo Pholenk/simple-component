@@ -11,11 +11,14 @@ import {
   Text,
   View
 } from 'react-native';
-// import SimpleComponent from './app/components/ClassBased';
-import SimpleComponent from './app/components/PureFunction';
+// import SimpleComponent from './app/components/ClassBased/SimpleComponent';
+// import SimpleButtonSwitch from './app/components/ClassBased/SimpleButtonSwitch';
+import SimpleComponent from './app/components/PureFunction/SimpleComponent';
+import SimpleButtonSwitch from './app/components/PureFunction/SimpleButtonSwitch';
 export default class somehello extends Component {
   state = {
-    timerText: 'now'
+    timerText: 'now',
+    clicked: false
   }
   componentDidMount(){
     setInterval(()=>{
@@ -28,8 +31,14 @@ export default class somehello extends Component {
     return (
       <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
         <SimpleComponent timerText={this.state.timerText} />
+        <SimpleButtonSwitch clicked={this.state.clicked} toggleSwitch={()=>this.toggleSwitch()}/>
       </View>
     );
+  }
+  toggleSwitch() {
+    this.setState({
+      clicked: !this.state.clicked
+    });
   }
 }
 

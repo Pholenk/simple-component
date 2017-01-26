@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 
 
-export default class ClassBased extends Component {
+export default class SimpleComponent extends Component {
   static defaultProps = {
     timerText: "hello"
   }
